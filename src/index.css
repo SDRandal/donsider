@@ -1,13 +1,743 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+:root {
+  --green: #98c08d;
+  --dark-green: #5f8f52;
+  --red: #F24F4F;
+  --dark-red: #C75959;
+  --pink: #FF7B7B;
+  --background-grey: #F8F8F8;
+  --grey: #B6B6B6;
+  --light-grey: #EFEFEF;
+  --mid-grey: #a2a2a2;
+  --dark-grey: #7B7B7B;
+  --near-black: #505050;
+  --shadow-grey: rgba(211, 211, 211, .5);
+  --transparent-grey-background: rgba(200, 200, 200, .5);
+
+
+  --border-radius: 6px;
+
+  --xxsmall-border: 1px solid var(--shadow-grey);
+  --xsmall-border: 2px solid var(--shadow-grey);
+  --small-border: 4px solid var(--shadow-grey);
+  --mid-border: 8px solid var(--shadow-grey);
+
+  --box-shadow: 0 2px 5px var(--shadow-grey);
+
+  --micro-gap: 5px;
+  --xsmall-gap: 10px;
+  --small-gap: 15px;
+  --mid-gap: 25px;
+  --normal-gap: 35px;
+  --large-gap: 50px;
+
+  --xsmall-font: 0.8em;
+  --small-font: 0.9em;
+  --normal-font: 1em;
+  --mid-font: 1.2em;
+  --large-font: 1.5em;
+  --xlarge-font: 2em;
+  --xxlarge-font: 3em;
+
+  --simple-transition: 250ms ease-in-out;
+}
+
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  font-size: 14px;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* Input Styles */
+
+input[type="text"], textarea {
+  border-radius: var(--border-radius);
+  border: 1px solid #dedede;
+  padding: var(--small-gap);
+}
+
+textarea {
+  resize: none;
+}
+
+input[type='file'] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+button {
+  margin-left: var(--small-gap);
+  padding: var(--small-gap);
+}
+
+/* Global Text Styles */
+
+h1, h2, h3, h4, h5, h6, p, a, span, div {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    color: var(--near-black);
+    margin-bottom: 0;
+}
+
+p:last-child {
+  margin-bottom: inherit;
+}
+
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.title {
+  font-size: 1.45em;
+}
+
+.subtext{
+  color: var(--dark-grey);
+  margin-left: var(--xsmall-gap)
+}
+a, a:hover {
+  color: var(--near-black);
+}
+
+.warning-text {
+  color: var(--red);
+}
+
+/* App Content Style */
+.app-content-container {
+  background-color: var(--background-grey);
+  min-height: 100vh;
+  padding: 1px;
+}
+
+.app-content {
+  width: 1080px;
+  /* margin: 50px auto 0px; */
+  margin: var(--mid-gap) auto 0px;
+  padding: var(--mid-gap);
+}
+
+/* Signal Styles */
+.active, .success-message {
+  color: var(--green);
+}
+
+.inactive, .error-message {
+  color: var(--red)
+}
+
+
+/* Button Styles */
+.delete-item-button {
+  position: absolute;
+  top: var(--small-gap);
+  right: var(--small-gap);
+  color: var(--red);
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.button {
+  max-width: 200px;
+  height: 100%;
+  padding: var(--small-gap);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button.mid {
+  min-width: 150px;
+}
+
+.button.button-hollow {
+  background-color: #fff;
+  margin-right: var(--small-gap);
+  border: var(--xxsmall-border);
+  border-radius: var(--border-radius);
+}
+
+.button.button-highlight {
+  color: #fff;
+  background-color: var(--red);
+  margin-right: var(--small-gap);
+  border: var(--xxsmall-border);
+  border-color: var(--red);
+  border-radius: var(--border-radius);
+  transition: var(--simple-transition);
+}
+
+.button.button-alternate {
+  background-color: var(--grey);
+  margin-right: var(--small-gap);
+  border: var(--xxsmall-border);
+  border-radius: var(--border-radius);
+}
+
+.button.button-main:hover {
+  background-color: var(--dark-red);
+  border-color: var(--dark-red);
+
+}
+
+.button.round {
+  width: var(--micro-gap);
+  height: var(--micro-gap);
+  border-radius: 100%;
+  color: #fff;
+  font-weight: 700;
+  background-color: var(--red);
+
+}
+
+.button.round.hollow {
+  color: var(--red);
+  background-color: #fff;
+  border: 1px solid var(--red);
+}
+
+.button.small {
+  padding: var(--xsmall-gap);
+  margin: auto;
+}
+.button.full-width{
+  max-width: initial;
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Panel Styles */
+.panel {
+  position: relative;
+  padding: var(--small-gap);
+  margin: 0;
+  margin-bottom: var(--small-gap);
+  background-color: #ffffff;
+  border: var(--xxsmall-border);
+  border-radius: var(--border-radius);
+
+}
+
+/* Form Styles */
+.form-container{
+  width: 500px;
+  padding: var(--large-gap);
+  margin: auto;
+}
+.input-label{
+  display: block;
+}
+.input-div{
+  margin-bottom: var(--mid-gap);
+}
+.input-div input[type="text"]{
+  width: 100%;
+}
+.forgot-password{
+  color: var(--dark-red);
+  text-align: right;
+  cursor: pointer;
+}
+.forgot-password:hover{
+  color: var(--red);
+}
+.signup-login-alternate-text{
+  margin-top: var(--small-gap);
+  text-align: center;
+}
+.signup-login-alternate-link{
+  color: var(--dark-red);
+  cursor: pointer;
+}
+.signup-login-alternate-link:hover{
+  color: var(--red);
+}
+
+/* List Style */
+
+.list-header {
+  margin: var(--mid-gap) auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin: 0;
+}
+
+.grid-list {
+  display: grid;
+  gap: 10px;
+  /* grid-auto-rows: minmax(100px, auto); */
+
+}
+
+.grid-list.double {
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.grid-list.triple {
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.grid-list.quad{
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Modal Styles */
+.modal-container {
+  position: fixed;
+  background-color: var(--transparent-grey-background);
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+}
+
+.modal {
+  padding: var(--mid-gap);
+  margin: auto;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  width: 500px;
+  transform: translateY(50%);
+}
+
+.modal-heading {
+  margin-bottom: var(--mid-gap);
+}
+
+.modal input, .modal textarea {
+  width: 100%;
+  outline: none;
+  border: var(--xxsmall-border);
+  border-radius: var(--border-radius);
+}
+
+.modal textarea {
+  height: 150px;
+}
+
+.modal-button-container {
+  margin-top: var(--mid-gap);
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Layout Styles */
+.flex-start {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-align-vertical-center {
+  display: flex;
+  align-items: center;
+}
+.flex-space-around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.padded-content {
+  padding: var(--small-gap)
+}
+.no-margin-bottom{
+  margin-bottom: 0;
+}
+.large-margin-bottom{
+  margin-bottom: var(--large-gap);
+}
+.normal-margin-bottom{
+  margin-bottom: var(--normal-gap);
+}
+.mid-margin-bottom{
+  margin-bottom: var(--mid-gap);
+}
+.small-margin-bottom {
+  margin-bottom: var(--small-gap);
+}
+.xsmall-margin-bottom {
+  margin-bottom: var(--xsmall-gap);
+}
+.micro-margin-bottom{
+  margin-bottom: var(--micro-gap);
+}
+.border-right{
+  border-right: var(--xsmall-border);
+}
+
+
+/* General Item Styles */
+.item-header {
+  margin-bottom: var(--mid-gap)
+}
+
+.item-title {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.subitem-list {
+  margin-top: var(--small-gap);
+}
+
+.time-difference {
+  margin-left: var(--micro-gap);
+  color: var(--mid-grey);
+}
+
+.subitem-title{
+  font-weight: 600;
+}
+
+/* Dropdown Styles */
+/* There are some styles that live in the userMenu.css file that refer to dropdowns, I should probably move those here for now */
+.dropdown{
+  position:absolute;
+  left: 0;
+  top: calc(56px + var(--xsmall-gap));
+  padding: var(--large-gap) var(--mid-gap) var(--normal-gap);
+  border: var(--xxsmall-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  z-index: 9;
+  text-align: left;
+  white-space: nowrap;
+}
+/* Plan Header Styles */
+
+#filter, #sort{
+  position: relative;
+}
+.dropdown-option-container{
+  display: flex;
+  margin-bottom: var(--mid-gap);
+}
+.dropdown-option-container:last-child{
+  margin-bottom: 0;
+}
+.dropdown-option-title{
+  flex: 0 0 auto;
+  width: 128px;
+  font-size: 0.9em;
+  margin-bottom: var(--small-gap);
+}
+.dropdown-option-list{
+  flex: 1 1 auto;
+  margin-left: var(--small-gap);
+  max-height: 100px;
+}
+.dropdown-option-list.grid{
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+}
+.dropdown-option{
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--small-gap);
+
+}
+.dropdown-option.stacked{
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dropdown-label{
+  cursor: pointer;
+  font-size: var(--xsmall-font);
+  margin-left: var(--small-gap);
+}
+.dropdown-option.stacked .filter-label{
+  margin-left: 0;
+  margin-bottom: var(--xsmall-gap);
+}
+
+
+
+/* Plan Item Styles */
+
+.plan-panel {
+  position: relative;
+  padding-top: calc(var(--small-gap));
+  padding-left: var(--normal-gap);
+}
+
+
+.plan-list-item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .plan-list-item-title {
+  margin-bottom: var(--mid-gap);
+} */
+
+
+/* Progress Bar Styles */
+
+.progress-bar-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.task-ratio {
+  margin-bottom: var(--small-gap);
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  margin-right: var(--small-gap);
+  margin-bottom: 0;
+}
+
+.progress-bar svg.progress-bar-foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.progress-percentage {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Plan User Icon Styles */
+
+.plan-user-icon-wrapper.stackable {
+  width: 17px;
+  display: inline-block;
+  margin: 0;
+}
+
+.plan-user-icon-container.small {
+  position: relative;
+  border-radius: 40px;
+  border: 2px solid #ffffff;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.plan-user-icon {
+  cursor: pointer;
+  padding: 5px 5px 0px 5px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--grey);
+}
+
+/* Tag Styles */
+
+/* .plan-tag-container {
+  width: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+} */
+
+.tag-item {
+  display: inline-block;
+  margin-right: var(--xsmall-gap);
+  margin-bottom: 0;
+  padding: var(--xsmall-gap) var(--small-gap);
+  border-radius: var(--border-radius);
+  background-color: var(--light-grey);
+  font-weight: 600;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.tag-item:hover {
+  color: #ffffff;
+  background-color: var(--dark-red);
+  cursor: pointer;
+}
+
+/* Plan Styles */
+
+.plan-heading {
+  margin-bottom: var(--mid-gap);
+}
+
+/* Tab Slider Styles */
+.tab-slider {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--small-gap);
+  grid-auto-rows: minmax(auto);
+  width: 80%;
+  max-width: 800px;
+  background-color: var(--light-grey);
+  margin: auto;
+  margin-top: var(--mid-gap);
+  padding: var(--micro-gap);
+  border-radius: var(--border-radius);
+}
+
+.tab-item {
+  margin: 0;
+  padding: var(--small-gap);
+  border-radius: var(--border-radius);
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-item.selected {
+  background-color: #ffffff;
+
+}
+
+/* Task Item Styles */
+.task-item .step-item-list .centered-button-container {
+  margin: var(--small-gap) auto;
+  display: flex;
+  justify-content: center;
+}
+
+.step-item {
+  position: relative;
+}
+
+.step-item label {
+  margin-left: var(--small-gap);
+}
+
+/* Option Item Styles */
+.inline-add-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pro-list p{
+  color: var(--dark-green);
+}
+
+.con-list p{
+  color: var(--pink);
+}
+
+.option-sub-item {
+  display: flex;
+  /* align-items: center; */
+  margin-bottom: var(--micro-gap);
+}
+
+.option-sub-item::before {
+  margin-right: var(--micro-gap);
+  font-weight: 900;
+}
+
+.pro-list .option-sub-item::before {
+  content: "+";
+  color: var(--dark-green);
+}
+
+.con-list .option-sub-item::before {
+  content: "-";
+  color: var(--pink);
+}
+
+.pro-list .button.round.hollow.small {
+  border-color: var(--dark-green);
+  color: var(--dark-green);
+}
+
+.con-list .button.round.hollow.small {
+  border-color: var(--pink);
+  color: var(--pink)
+}
+
+.option-sub-list {
+  border-top: 3px solid;
+  margin-top: var(--micro-gap);
+  padding: var(--xsmall-gap);
+}
+
+.pro-list .option-sub-list {
+  border-color: var(--dark-green);
+  color: var(--dark-green);
+}
+
+.con-list .option-sub-list {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+/* Note Styles */
+
+/* Attachment Styles */
+.attachments{
+  text-align: center;
+}
+.attachments img{
+  max-width: 100%;
+  padding: var(--small-gap);
+  margin: auto;
+
+}
+.attachments .panel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* DatePicker Styles
+    This is not very elegant, I need to look into using CSS Modules for stuff like this
+    It supposedly helps with conflicts and reuse. Im pretty much just copying my styles for inputs here.
+*/
+.DayPickerInput input{
+  border-radius: var(--border-radius);
+  border: 1px solid #dedede;
+  padding: var(--small-gap);
+
 }

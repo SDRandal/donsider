@@ -1,0 +1,26 @@
+.dropdown-menu{
+    width: 200px;
+    position: absolute;
+    box-sizing: border-box;
+    border-top: var(--border);
+    padding: 0;
+    right: 0;
+    top: 83px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+}
+.dropdown-menu ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.dropdown-menu ul li{
+    padding: var(--small-gap) var(--mid-gap);
+    cursor: pointer;
+}
+
+.dropdown-menu ul li:hover{
+background-color: var(--pink);
+color: #fff;
+}

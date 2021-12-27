@@ -1,0 +1,25 @@
+.plans-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--mid-gap);
+}
+.plans-header .filter-sort-buttons{
+    display: flex;
+    align-items: center;
+}
+
+.plans-header .search-input-container{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0px var(--small-gap);
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+.plans-header .search-input-container input{
+    border: 0;
+    outline: none;
+}
+

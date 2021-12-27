@@ -1,0 +1,20 @@
+nav{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .profile-picture-container{
+    border-radius: 40px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+nav .profile-picture{
+    cursor: pointer;
+    padding: 5px 5px 0px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--grey);
+}
