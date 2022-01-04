@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { StepDescription } from 'semantic-ui-react'
 import { updateProperty } from '../../../features/plans/plansSlice'
+import EditableInput from '../EditableInput'
 
 function StepItem({step, planId, taskId, showModalFunction}) {
     const dispatch = useDispatch()
@@ -17,7 +18,7 @@ function StepItem({step, planId, taskId, showModalFunction}) {
     return (
         <div className={"micro-margin-bottom step-item flex-align-vertical-center " + (step.status === "Completed"? "active":"inactive")}>
             <input id={step._id} type="checkbox" onChange={handleChange} checked={step.status} />
-            <label htmlFor={step._id} className="input-label">{title} <span className="delete-item-button" onClick={handleRemove}>x</span></label>
+            <EditableInput classNames={'input-label'} text={title} tag='label'></EditableInput><span className="delete-item-button" onClick={handleRemove}>x</span>
         </div>
     )
 }
