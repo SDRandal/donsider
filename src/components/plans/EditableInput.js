@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import GeneralModal from '../modal/GeneralModal'
 
-function EditableInput({ text, tag, classNames }) {
+function EditableInput({ text, tag = "p", classNames }) {
     const [isEditing, setIsEditing] = useState(false)
     const [textInputContent, setTextInputContent] = useState(text)
     const [discardModalShowing, setDiscardModalShowing] = useState(false)
@@ -49,7 +49,8 @@ function EditableInput({ text, tag, classNames }) {
 
     // TODO I have found myself repeating this modal pattern alot, maybe it's time to move this to a global state? and just have a handful of modal elements? 
     const showDiscardModal = (event) => {
-        console.log("din");
+        // TODO when a button outside of the input is clicked, the discard changes modal should show up, but then the button click should still register
+    
         const textHasChanged = !(event.target.value == textInputContent)
         if (!saving) {
             if (!textHasChanged) {
