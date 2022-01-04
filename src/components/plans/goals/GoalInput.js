@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { updatePlan } from '../../../features/plans/plansSlice'
 import { displayErrorMessage, displaySuccessMessage } from '../../../features/signals/messages'
 import { sanitizeInput } from '../../../services/utils'
+import EditableInput from '../EditableInput'
 
 function GoalInput(props) {
     const [goalText, setGoalText] = useState(props.text)
@@ -31,7 +32,6 @@ function GoalInput(props) {
                     displayErrorMessage(event.target, err)
                 })
         }
-
     }
 
     const paragraphText = <p onClick={switchToEditing}>{goalText}</p>
@@ -41,9 +41,10 @@ function GoalInput(props) {
         return <p>"No goal for this plan yet."</p>
     }
     return(
-        <div className='subtext small-margin-bottom'>
-            {goalContent}
-        </div>
+        <EditableInput classNames={'subtext small-margin-bottom'} text={goalText} tag={'div'}></EditableInput>
+        // <div className='subtext small-margin-bottom'>
+        //     {goalContent}
+        // </div>
     )
 }
 export default GoalInput

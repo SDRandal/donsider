@@ -31,6 +31,7 @@ function EditableInput({ text, tag, classNames }) {
     }
 
     const confirmTextInput = () => {
+        // TODO There is a logic issue here... If I discard changes when confirming, the input box no longer has listeners for focus out or input.
         toggleEditing()
         hideConfirmModal()
         setSaving(false)
@@ -80,7 +81,7 @@ function EditableInput({ text, tag, classNames }) {
 
     const textInput = <input defaultValue={textInputContent} autoFocus type='text' onKeyPress={handleInput} onBlur={showDiscardModal}></input>
 
-    const discardConfirmationModal = <GeneralModal heading={"Discard changes?"} confirmAction={confirmDiscard} denyAction={hideDiscardModal}></GeneralModal>
+    const discardConfirmationModal = <GeneralModal heading={"Discard changes?"} confirmText='Discard' confirmAction={confirmDiscard} denyAction={hideDiscardModal}></GeneralModal>
     const confirmModal = <GeneralModal heading={"Save changes?"} confirmAction={confirmTextInput} denyAction={hideConfirmModal}></GeneralModal>
     return (
         <div>
