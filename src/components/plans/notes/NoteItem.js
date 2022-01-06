@@ -1,6 +1,9 @@
 import React from 'react'
 import UserItem from '../users/UserItem'
 import { getInterval } from '../../../services/utils'
+import EditableInput from '../EditableInput'
+
+
 function NoteItem({ planId, note, showModalFunction }) {
     const noteContent = note.content ? note.content : "No note content"
 
@@ -9,7 +12,7 @@ function NoteItem({ planId, note, showModalFunction }) {
         showModalFunction([planId], note._id, "note")
     }
     return (
-        <div className='panel'>
+        <div className='panel note-item'>
             <div className='item-heading'>
                 <div className='flex-start'>
                     <UserItem user={{ _id: note.user }}></UserItem>
@@ -17,7 +20,7 @@ function NoteItem({ planId, note, showModalFunction }) {
 
                 </div>
             </div>
-            <div className='padded-content'>{noteContent}<span className="delete-item-button" onClick={handleRemove}>x</span></div>
+            <div className='padded-content'><EditableInput inputType='textarea' text={noteContent}></EditableInput><span className="delete-item-button" onClick={handleRemove}>x</span></div>
         </div>
     )
 }

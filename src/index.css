@@ -62,7 +62,7 @@ body {
 
 /* Input Styles */
 
-input[type="text"], textarea {
+input[type="text"], [type='textarea'] {
   border-radius: var(--border-radius);
   border: 1px solid #dedede;
   padding: var(--small-gap);
@@ -715,7 +715,9 @@ a, a:hover {
 }
 
 /* Note Styles */
-
+.note-item [type='textarea']{ 
+  width: 100%;
+}
 /* Attachment Styles */
 .attachments{
   text-align: center;
@@ -740,4 +742,32 @@ a, a:hover {
   border: 1px solid #dedede;
   padding: var(--small-gap);
 
+}
+
+/* Resopnsive Textarea styles */
+
+.responsive-textarea-wrapper{
+  display: grid;
+}
+
+.responsive-textarea-wrapper::after{
+  content: attr(data-replicated-value) " ";
+  white-space: pre-wrap;
+  visibility: hidden;
+}
+
+.responsive-textarea-wrapper > textarea{
+  resize: none;
+  overflow: hidden;
+
+}
+.responsive-textarea-wrapper > textarea,
+.responsive-textarea-wrapper::after{
+  border: 1px solid var(--near-black);
+  padding: var(--small-gap);
+  font: inherit;
+  grid-area: 1 / 1 / 2 / 2;
+}
+.responsive-textarea-wrapper > p{
+  grid-area: 1 / 1 / 2 / 2;
 }

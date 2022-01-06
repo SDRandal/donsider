@@ -47,7 +47,7 @@ function ConItemList({ cons, planId, donsiderationId, optionId }) {
     }
     const removeItemModalElement = removeItemModalShowing ? <RemoveItemlModal confirmFunction={handleRemove} denyFunction={hideRemoveItemModal}  ></RemoveItemlModal> : null
     const addItemModalElement = addItemModalShowing ? <AddItemModal itemName="con" confirmFunction={handleAdd} denyFunction={hideAddItemModal}  ></AddItemModal> : null
-    const conItems = cons.map((con) => <ConItem planId={planId} donsiderationId={donsiderationId} optionId={optionId} key={con._id} con={con} showModalFunction={showRemoveItemlModal} ></ConItem>)
+    const conItems = cons.map((con) => <ConItem planId={planId} donsiderationId={donsiderationId} optionId={optionId} key={con._id} con={con} showRemoveItemModalFunction={showRemoveItemlModal} ></ConItem>)
 
     return (
         <div className='con-list'>
