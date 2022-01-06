@@ -3,18 +3,17 @@ import { updateProperty } from '../../../features/plans/plansSlice'
 import { sanitizeInput } from '../../../services/utils'
 import { useDispatch } from 'react-redux'
 import { displayErrorMessage, displaySuccessMessage } from '../../../features/signals/messages'
+import EditableInput from '../EditableInput'
 
-
-
-function ConItem({ con, planId, donsiderationId, optionId, showModalFunction }) {
+function ConItem({ con, planId, donsiderationId, optionId, showRemoveItemModalFunction }) {
 
     const handleRemove = () => {
-        showModalFunction([planId, donsiderationId, optionId], con._id, "con")
+        showRemoveItemModalFunction([planId, donsiderationId, optionId], con._id, "con")
     }
    
         return (
             <div className='option-sub-item'>
-                <p>{con.content}<span className="delete-item-button" onClick={handleRemove}>x</span></p>
+                <EditableInput text={con.content} ></EditableInput><span className="delete-item-button" onClick={handleRemove}>x</span>
             </div>
         )
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import EditableInput from '../EditableInput'
 
 function ProItem({ pro, planId, optionId, donsiderationId, showRemoveItemModalFunction }) {
 
@@ -7,7 +8,7 @@ function ProItem({ pro, planId, optionId, donsiderationId, showRemoveItemModalFu
     }
     return (
         <div className='option-sub-item'>
-            <p>{pro.content}<span className="delete-item-button" onClick={handleRemove}>x</span></p>
+            <EditableInput text={pro.content}></EditableInput><span className="delete-item-button" onClick={handleRemove}>x</span>
         </div>
     )
 }
