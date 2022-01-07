@@ -6,5 +6,8 @@ This project was relies on a backend "api" [I've built using node/mongodb](https
 
 In the project directory, you can run:
 
-### `npm run start`
+### `npm start`
 
+This will start up a "dev" server for the frontend
+
+You'll likley not be able to make it past the login page if you do not have the backend server running. Auth runs through that server. But here are some screenshots of what 
