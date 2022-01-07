@@ -127,7 +127,7 @@ function EditableInput({ text, tag = "p", classNames, inputType = 'text' }) {
         setConfirmOrDiscardModalShowing(false)
     }
     const textDisplay = React.createElement(tag, { className: classNames, onClick: handleClick }, textInputContent)
-    const textInput = inputType === 'textarea' ? <textarea defaultValue={textContent} autoFocus onInput={handleInput} onBlur={handleBlur}></textarea> : <input defaultValue={textContent} autoFocus type={inputType} onKeyPress={handleKeyPress} onBlur={handleBlur}></input>
+    const textInput =  <textarea defaultValue={textContent} autoFocus onInput={handleInput} onBlur={handleBlur}></textarea> 
     const discardConfirmationModal = <GeneralModal heading={"Discard changes?"} confirmText='Discard' confirmAction={confirmDiscard} denyAction={hideDiscardModal}></GeneralModal>
     const confirmModal = <GeneralModal heading={"Save changes?"} confirmAction={confirmTextInput} denyAction={hideConfirmModal}></GeneralModal>
     const otherActions = [
@@ -139,7 +139,7 @@ function EditableInput({ text, tag = "p", classNames, inputType = 'text' }) {
     ]
     const confirmOrDiscardModal = <GeneralModal heading={"Save changes?"} confirmAction={confirmTextInput} denyAction={hideConfirmOrDiscardModal} otherActions={otherActions}></GeneralModal>
     return (
-        <div className={inputType === 'textarea' ? 'responsive-textarea-wrapper' : ''}>
+        <div className={'responsive-textarea-wrapper'} > 
             {isEditing ? textInput : textDisplay}
             {/* TODO This feels sloppy, is there a better way?  */}
             {discardModalShowing && discardConfirmationModal}

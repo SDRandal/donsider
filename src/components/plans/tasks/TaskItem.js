@@ -1,6 +1,7 @@
 import React from 'react'
 import TaskProgressBar from '../TaskProgressBar'
 import StepList from './StepList'
+import EditableInput from '../EditableInput'
 
 function TaskItem({task, planId, showModalFunction}) {
 
@@ -11,7 +12,7 @@ function TaskItem({task, planId, showModalFunction}) {
     }
     return (
         <div className="task-item panel">
-            <p className="item-title xsmall-margin-bottom">{task.title} </p><span className="delete-item-button" onClick={handleRemove}>x</span>
+            <EditableInput classNames={'item-title xsmall-margin-bottom'} text={task.title} ></EditableInput><span className="delete-item-button" onClick={handleRemove}>x</span>
 
             <p className={"task " + task.priority}>{task.priority}</p>   
 
