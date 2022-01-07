@@ -12,13 +12,18 @@ function StepItem({step, planId, taskId, showModalFunction}) {
         dispatch(updateProperty([planId, taskId],step._id, stepUpdateObject, "step", ))
     } 
 
+    const handleTextChange = (title)=>{
+        const stepUpdateObject = { title}
+        dispatch(updateProperty([planId, taskId],step._id, stepUpdateObject, "step", ))
+    }
+
     const handleRemove = ()=>{
         showModalFunction([planId, taskId], step._id, "step")
     }
     return (
         <div className={"micro-margin-bottom step-item flex-align-vertical-center " + (step.status === "Completed"? "active":"inactive")}>
             <input id={step._id} type="checkbox" onChange={handleChange} checked={step.status} />
-            <EditableInput classNames={'input-label'} text={title} tag='label'></EditableInput><span className="delete-item-button" onClick={handleRemove}>x</span>
+            <EditableInput updateFunction={handleTextChange} classNames={'input-label'} text={title} tag='label'></EditableInput><span className="delete-item-button" onClick={handleRemove}>x</span>
         </div>
     )
 }
