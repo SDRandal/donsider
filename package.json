@@ -1,14 +1,28 @@
 {
   "name": "donsider",
   "version": "0.1.0",
+  "description": "Prodictivity app with an emphasis on tracking the decisions you make.",
   "private": true,
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.40.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "aws-cloudfront-sign": "^2.2.0",
+    "aws-sdk": "^2.1023.0",
     "axios": "^0.22.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "date-fns": "^2.27.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.10",
+    "multer": "^1.4.3",
     "react": "^17.0.2",
     "react-day-picker": "^7.4.10",
     "react-dom": "^17.0.2",
@@ -19,11 +33,12 @@
     "reselect": "^4.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
+    "uuid": "^8.3.2",
     "validator": "^13.6.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon api/server.js; react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -47,6 +62,7 @@
     ]
   },
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.9"
+    "redux-devtools-extension": "^2.13.9",
+    "nodemon": "^2.0.13"
   }
 }
