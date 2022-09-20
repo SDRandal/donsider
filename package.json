@@ -38,6 +38,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "serve": "nodemon api/server.js",
     "start": "nodemon api/server.js; react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -62,7 +63,7 @@
     ]
   },
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.9",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "redux-devtools-extension": "^2.13.9"
   }
 }
