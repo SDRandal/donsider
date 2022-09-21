@@ -1,6 +1,6 @@
 const db = require("../models")
 const priorities = require("../models/constants/priority.constant")
-const attachmentController = require("../controllers/dependents/attachment.controller")
+const attachmentController = require("./attachment.controller")
 const Plan = db.plan
 const User = db.user
 

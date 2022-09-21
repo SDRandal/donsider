@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 
-const controller = require("../../controllers/dependents/attachment.controller")
+const controller = require("../../controllers/attachment.controller")
 const { verifyOwnership, authJwt } = require("../../middleware")
 
 module.exports= (app)=>{
