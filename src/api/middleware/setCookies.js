@@ -15,10 +15,11 @@ const setCookies = (req, res, next) =>{
     delete cookies["CloudFront-Policy"]
     cookies['CloudFront-Expires'] = timestamp
     for(cookie in cookies){
-        console.log(cookie)
         res.cookie(cookie, cookies[cookie])
     }
-                res.cookie('test', 'test', {path: "/plans"})
+
+    // TODO what was my thought process here? What was I trying to pass aas that third param? 
+    // res.cookie('test', 'test', {path: "/plans"})
     next()
 
 }
