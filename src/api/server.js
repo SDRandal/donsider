@@ -4,8 +4,9 @@ const cors = require("cors")
 
 const app = express()
 // Why did they use var instead of const or let here?
+
 var corsOptions = {
-    // origin: "http://192.168.1.166:3000"
+    // TODO Once online, I think I need to just route this to a different IP...Or maybe a randomized value
     origin: "http://localhost:3000",
     credentials: true
 }
@@ -15,8 +16,8 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const db = require("./app/models")
-const dbConfig = require("./app/config/db.config")
+const db = require("./models")
+const dbConfig = require("./config/db.config")
 const Role = db.role
 
 
@@ -32,17 +33,18 @@ db.mongoose
 
 // Routes
 app.use(function (req, res, next) {
-    //Does it make sense to just put this here? or should I only place it on routes that are protected?
+    // TODO Does it make sense to just put this here? or should I only place it on routes that are protected?
     res.header(
         "Access-Control-Allow-Headers",
         "x-access-token, Origin, Content-Type, Accept"
     )
     next()
 })
-// require('./app/routes/test.routes')(app)
-require('./app/routes/auth.routes')(app)
-require('./app/routes/user.routes')(app)
-require('./app/routes/plan.routes')(app)
+
+// TODO I think that I will need to move this initialization outside of this file.
+require('./routes/auth.routes')(app)
+require('./routes/user.routes')(app)
+require('./routes/plan.routes')(app)
 
 function initial() {
     Role.estimatedDocumentCount((err, count) => {

@@ -5,7 +5,7 @@ const cfsign = require('aws-cloudfront-sign')
 
 
 
-const privKey = fs.readFileSync('./app/config/donsider-aws-cf-priv-key.pem', 'utf-8')
+const privKey = fs.readFileSync('./config/donsider-aws-cf-priv-key.pem', 'utf-8')
 const CLOUDFRONTDOMAIN = 'https://d1c99iomjiepbv.cloudfront.net/'
 const publicKeyId = "K2QO15VP07090U"
 // TODO This is so slopppy, this whole file is, but si need to figure out how this works
@@ -85,7 +85,7 @@ module.exports.createSignedUrl = (filename, timestamp, params, signature) => {
 }
 const getSigningParams = ()=> ({
     keypairId: "K2QO15VP07090U",
-    privateKeyPath: "./app/config/donsider-aws-cf-priv-key.pem",
+    privateKeyPath: "./config/donsider-aws-cf-priv-key.pem",
     expireTime: getUTCTimestampMs()
 })
 cfsign.getSignedCookies

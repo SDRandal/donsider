@@ -8,7 +8,7 @@ const setCookies = (req, res, next) =>{
     const timestamp = getUTCTimestampMs()
     const cookies = cfsign.getSignedCookies(CLOUDFRONTDOMAIN, {
         keypairId: publicKeyId,
-        privateKeyPath: "./app/config/donsider-aws-cf-priv-key.pem",
+        privateKeyPath: "./config/donsider-aws-cf-priv-key.pem",
         expireTime: timestamp
     })
     // Remove cloudfront-policy
