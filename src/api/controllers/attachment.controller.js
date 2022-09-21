@@ -1,14 +1,14 @@
-const { IMAGEURL, FILEURL, getUTCTimestamp, createSignature, createPolicy, createSignedUrl, generateSignedUrl } = require("../../config/files.config")
-const db = require("../../models")
-const helpers = require("../helpers/plan.helper")
+const { IMAGEURL, FILEURL, getUTCTimestamp, createSignature, createPolicy, createSignedUrl, generateSignedUrl } = require("../config/files.config")
+const db = require("../models")
+const helpers = require("./helpers/plan.helper")
 const Plan = db.plan
 const Attachment = db.attachment
 const { PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3')
-const { s3Client } = require("../../config/s3Client")
+const { s3Client } = require("../config/s3Client")
 const fs = require('fs')
 const { createWriteStream } = require('fs')
 const path = require("path")
-const { attachment } = require("../../models")
+const { attachment } = require("../models")
 
 // TODOI will need to make sure this gets called in both the update and removal methods
 const removeFileFromFS = (filepath) => {
