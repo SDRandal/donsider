@@ -158,6 +158,7 @@ exports.requestLink = (req, res) => {
         if (!attachment) {
             return res.status(404).send({ message: "The requested attachment does not exist" })
         }
+        // TODO This piece of code right here couple attachments to an image type pretty tightly. May need to re work this
         const link = generateSignedUrl("images/" + attachment.persistentFileName)
         res.send({ link })
     })

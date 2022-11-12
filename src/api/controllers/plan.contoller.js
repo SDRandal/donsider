@@ -29,6 +29,11 @@ const planBelongsToUser = (userId, planUsers) => {
     })
 }
 
+exports.findPlanById = (id, cb) => {
+    return Plan.findOne({_id: id}, cb)
+}
+exports
+
 exports.create = (req, res) => {
     let plan, currentUser
     User.findById(req.userId, (err, user) => {
@@ -41,7 +46,6 @@ exports.create = (req, res) => {
         plan = createNewPlan(user, req.body.title, req.body.goal)
         user.plans.push(plan._id)
         user.save()
-        currentUser = user
         return res.send(plan)
     })
 }
@@ -57,6 +61,18 @@ exports.read = (req, res) => {
         if (!plan) {
             return res.status(404).send({ message: "Plan not found" })
         }
+        // TODO Is this like spoofable? Couldn't a user just send a request with the "right" userID? 
+        /* TODO Maybe I need to make sure to check every request tht comes in with a userId value, and make sure it matches what the jwt says? 
+           And if it doesn't, just send back an "invalid request" message. 
+        */
+        /* Doing things this way does save a round trip lookup of the user. If the auth check is done for every
+            request, then I can actually just add a "user object" to the req before it gets passed here. 
+            And this way still wins, because if I were to count on the user object to contain the plans, that
+            means I would have to get that on every request, when sometimes a req for a user may have nothing
+            to do with plans. 
+        */
+
+        // TODO So does the planBelongsToUser need to be in an "auth utility or something?"
         if (!planBelongsToUser(userId, plan.users)) {
             res.status(403).send({ message: "Forbidden Plan" })
         } else {

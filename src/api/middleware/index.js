@@ -9,3 +9,4 @@ module.exports = {
     verifyOwnership, 
     verifyUserAllowedToUpdateRequestedUser
 }
+// TODO DO the Object.assign({}, [requires(),...]) thing here

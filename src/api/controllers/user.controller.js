@@ -15,6 +15,9 @@ exports.moderatorBoard = (req, res) => {
 exports.update = (req, res) =>{
 
 }
+exports.findById = (req, res) => {
+        
+}
 
 exports.getAvatar = (req, res)=>{
     const uid = req.params.uid
